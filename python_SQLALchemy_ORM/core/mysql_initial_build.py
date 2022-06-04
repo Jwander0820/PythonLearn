@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 Base = declarative_base()
 # mysql需要設定使用者名稱:密碼@端口/資料庫名稱
 # mysql+pymysql://<username>:<password>@<host>:<port>/<database_name>
-engine_url = "mysql+pymysql://root:Jwander1098@127.0.0.1:3306/7000_python_test"
+engine_url = "mysql+pymysql://root:123456@127.0.0.1:3306/7000_python_test"
 # 使用create_engine來連線，若將參數 echo 設為 True，會將所有執行的過程輸出到 cmd or terminal 上
 engine = create_engine(engine_url, echo=False)
 
@@ -20,7 +20,7 @@ class CreateDatabase:
         "host": "127.0.0.1",
         "port": 3306,
         "user": "root",
-        "password": "Jwander1098",
+        "password": "123456",
         # "db": "7000_python_test",  # 資料庫名稱
         "charset": "utf8"
     }
