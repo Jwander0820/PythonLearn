@@ -55,11 +55,11 @@ class ReplaceFileName:
 
 
 if __name__ == "__main__":
-    _path = f'./custom_dataset'
+    _path = fr'./custom_dataset'
     _replaced_text = "道教的奧秘(燈籠魚)_內文掃描檔"
     _new_text = "The_Mystery_of_Taoism"
     # 替換資料夾內指定字詞
-    replace_file_name(_path, _replaced_text, _new_text)
+    ReplaceFileName.replace_file_name(_path, _replaced_text, _new_text)
 
     # 將資料夾內所有檔案 or 指定字詞的檔案，統一添加前綴詞或後綴詞
     # ReplaceFileName().add_prefix_suffix(_path, prefix_text="這是前綴", suffix_text="這是後綴")
