@@ -12,11 +12,12 @@ def test_kwargs(**kwargs):
 def test_all(*args, **kwargs):
     print(args)
     print(kwargs)
-    print(kwargs.get("a"))  # 透過get取得kwargs的值
     kwargs.setdefault("test", "新增")  # 若預設值不存在，則新增該鍵值
     print(kwargs)
     kwargs.setdefault("a", "預設值")  # 若預設值不存在，則新增該鍵值
     print(kwargs)
+    print(kwargs.get("a"))  # 透過get取得kwargs的值
+    print(kwargs["a"])  # 也可用字典方式取值
 
 
 if __name__ == "__main__":
