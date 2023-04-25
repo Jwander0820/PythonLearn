@@ -8,9 +8,9 @@
 
 main.py需要輸入一個參數， 而main.py會幫你把輸入的參數列印出來，有兩種調用方式
 
-`py main.py “隨便一個參數"`
+`py main.py "隨便一個參數"`
 
-`python main.py “隨便一個參數"`
+`python main.py "隨便一個參數"`
 
 執行後會印出三行
 

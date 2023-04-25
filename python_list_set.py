@@ -1,36 +1,45 @@
-if __name__ == "__main__":
+def list_sorting():
     # 1. 對清單排序
     x = [1, 3, 5, 2, 4]
     x_array = [[1, 2], [5, 4], [3, 0]]
+
     # 1.A 預設函數sorted，直接幫清單做排序，預設排序取第0位
     print(f"x清單排序 {sorted(x)}")
     print(f"二維x清單排序 {sorted(x_array)}")
+
     # 1.B sorted 進階排序，指定內部列表第n個元素為基礎做排序
     from operator import itemgetter
-    x_array_sorted0 = sorted(x_array, key=itemgetter(0))  # 第0個元素(預設)
-    x_array_sorted1 = sorted(x_array, key=itemgetter(1))  # 第1個元素
+    x_array_sorted0 = sorted(x_array, key=itemgetter(0))
+    x_array_sorted1 = sorted(x_array, key=itemgetter(1))
     print(f"二維x清單取第0個元素做排序 {x_array_sorted0}")
     print(F"二維x清單取第1個元素做排序 {x_array_sorted1}")
     print("\n")
 
+
+def remove_duplicates():
     # 2. 刪除清單內重複項目
     x = [1, 3, 4, 1, 2, 2, 2]
+
     # 2.A 粗暴的for迴圈計算(會保留順序
     new_x_a = []
     for element in x:
         if element not in new_x_a:
             new_x_a.append(element)
     print(f"for迴圈刪除重複元素 {new_x_a}")
+
     # 2.B 函式計算(會保留順序)
     from collections import OrderedDict
     new_x_b = list(OrderedDict.fromkeys(x))
     print(f"函式刪除重複元素{new_x_b}")
+
     # 2.C 直接轉set(集合)再轉回來，這樣若有重複的元素值就會被消除，但須注意集合也會自動排序
     # 若非常在意順序的資料盡量避免使用
     new_x_c_set = list(set(x))
     print(f"集合刪除重複元素{new_x_c_set}")
     print("\n")
 
+
+def set_operations():
     # 3. 集合基本運算操作
     # 3.0 基本集合運算
     x_set = {1, 3, 4}
@@ -65,8 +74,10 @@ if __name__ == "__main__":
     print(x < z)  # 判斷 x 是否為 z 的子集合
 
     # 判斷超集合(較大的集合)
-    print(x.issuperset(z))  # 判斷 x 是否為 z 的超集合(等校z為x的子集合)
+    print(x.issuperset(z))  # 判斷 x 是否為 z 的超集合(等效z為x的子集合)
 
 
-
-
+if __name__ == "__main__":
+    list_sorting()
+    remove_duplicates()
+    set_operations()

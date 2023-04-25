@@ -43,6 +43,7 @@ if __name__ == "__main__":
     print("EXP 4.")
     test_all(*_tuple, **_dict)
     print("\n")
+
     # 若是沒有拆包，則會全部被判別為arg，被包成元組
     print("EXP 5.")
     test_all(_tuple, _dict)

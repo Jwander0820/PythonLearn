@@ -11,16 +11,17 @@
 3. 如果寫一個大的程式，且要call很多function，if __name__ == '__main__' 絕對是你的好碰油
 """
 
+
 def cool_func():
     print('cool_func(): Super Cool!')
-    
-if __name__=='__main__':
+
+
+if __name__ == '__main__':
     print('Call it locally')
     cool_func()
-    
 
-print('__name__ = ',__name__)
+print('__name__ = ', __name__)
 
-if __name__=='cool':
+if __name__ == 'cool':
     print('如果name為cool的話，列印出 Oh My God ')
     print('Oh My God')

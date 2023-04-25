@@ -1,30 +1,72 @@
-# zip概念
-x = [1, 2, 3, 4, 5, 6, 7]
-y = [12, 1234, 1234, 1231, 123, 12, 324]
-# zip生成一個可以被迭代的物件
-# 返回一個元組迭代器，其中第i個元組包含每個引數序列或可迭代物件中的第i個元素。當最短的可迭代輸入耗盡時，迭代器將停止
-zipped = zip(x, y)
-for i in zipped:
-    print(i)
+def zip_and_dict_demo(x, y):
+    zipped = zip_lists(x, y)
+    print("Zipped:")
+    for i in zipped:
+        print(i)
 
-zipped = dict(zipped) # 若先將zipped用for走訪完之後，再將zipped轉換成dict or list 會發現
-print(zipped) # 印出來的是空值
-# 是因為“zip對象” 是一个迭代器。 迭代器只能前進，不能後退。
+    zipped_dict = zipped_to_dict(x, y)
+    print("\nZipped dict:")
+    print(zipped_dict)
+    find_value_in_dict(zipped_dict, 1234)
 
-# zip轉dict
-zipped = dict(zip(x, y))
-for i in zipped:
-    print(f"key = {i}；value = {zipped[i]}")
-    if zipped[i] == 1234: # 若資料為####則執行以下
-        print(f"鍵值{i}的資料為{zipped[i]}")
+    print("\nIterate through keys:")
+    iterate_keys(zipped_dict)
+
+    print("\nIterate through values:")
+    iterate_values(zipped_dict)
+
+    print("\nIterate through items:")
+    iterate_items(zipped_dict)
 
 
-# 字典迭代處理相關說明
-for key in zipped.keys():  # 讀字典的鍵值，for迴圈讀取字典預設為讀鍵的形式(同keys())
-    print(key)
-for key in zipped:  # 同.keys()的用法
-    print(key)
-for value in zipped.values():  # 讀取字典的鍵對應的值，直接取值的方法
-    print(value)
-for key, value in zipped.items():  # 讀取出字典的鍵與值，並同時處理
-    print(key, value)
+def zip_lists(x, y):
+    """
+    將兩個列表壓縮成一個 zip 對象
+    """
+    return zip(x, y)
+
+
+def zipped_to_dict(x, y):
+    """
+    將兩個列表壓縮成一個字典
+    """
+    return dict(zip(x, y))
+
+
+def find_value_in_dict(zipped_dict, value):
+    """
+    在字典中查找特定值
+    """
+    for key in zipped_dict:
+        if zipped_dict[key] == value:
+            print(f"鍵值 {key} 的資料為 {zipped_dict[key]}")
+
+
+def iterate_keys(zipped_dict):
+    """
+    遍歷並打印字典的鍵
+    """
+    for key in zipped_dict.keys():
+        print(key)
+
+
+def iterate_values(zipped_dict):
+    """
+    遍歷並打印字典的值
+    """
+    for value in zipped_dict.values():
+        print(value)
+
+
+def iterate_items(zipped_dict):
+    """
+    遍歷並打印字典的鍵和值
+    """
+    for key, value in zipped_dict.items():
+        print(key, value)
+
+
+if __name__ == "__main__":
+    x = [1, 2, 3, 4, 5, 6, 7]
+    y = [12, 1234, 1234, 1231, 123, 12, 324]
+    zip_and_dict_demo(x, y)
